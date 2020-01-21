@@ -43,6 +43,13 @@ public class WebServer {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
       String query = req.getParameter("q");
+      String[] q = query.split(":");
+      StringBuilder builder = new StringBuilder();
+      for(int i = 1; i < q.length; i++) {
+        builder.append(q[i]);
+        builder.append(' ');
+      }
+      query = builder.toString().trim();
       new ApiResponse(new QueryProcessor().process(query)).writeTo(resp);
     }
   }

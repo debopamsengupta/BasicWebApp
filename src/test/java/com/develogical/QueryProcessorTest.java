@@ -86,6 +86,7 @@ public class QueryProcessorTest {
 
     @Test
     public void power() throws Exception {
-        assertThat(queryProcessor.process("what is 4 to the power of 2"), containsString("16"));
+        assertThat(queryProcessor.process("   what is 4 to the power of  2"), containsString("16"));
+        assertThat(queryProcessor.process("what is     16 to the power of   6   "), containsString("16777216"));
     }
 }
