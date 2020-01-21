@@ -74,9 +74,9 @@ public class QueryProcessorTest {
 
     @Test
     public void fib() throws Exception {
-        assertThat(queryProcessor.process("what is the 4th fibonacci"), containsString("5"));
+        assertThat(queryProcessor.process("what is the 4th fibonacci"), containsString("3"));
         assertThat(queryProcessor.process("what is the 1st fibonacci"), containsString("1"));
-        assertThat(queryProcessor.process("what is the 2nd fibonacci"), containsString("2"));
+        assertThat(queryProcessor.process("what is the 2nd fibonacci"), containsString("1"));
     }
 
     @Test

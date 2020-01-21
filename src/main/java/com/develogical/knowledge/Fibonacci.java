@@ -20,6 +20,6 @@ public class Fibonacci {
         String result = request.split("what is the ")[1];
         result = result.split(" ")[0].replace("th", "").replace("st", "").replace("nd", "").replace("rd", "");
         int x = Integer.parseInt(result);
-        return fib(x);
+        return fib(x-1);
     }
 }
