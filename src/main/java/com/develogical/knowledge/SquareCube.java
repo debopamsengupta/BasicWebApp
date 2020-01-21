@@ -21,17 +21,15 @@ public class SquareCube {
             integers.add(Integer.valueOf(x));
         }
 
-        for(int x : integers)
+        for(int y : integers)
         {
+            double x = (double)y;
             System.out.println(x);
-            double cubic = Math.pow(x, 1.0/3);
-            double square = Math.pow(x, 1.0/2);
-            if ((double)(int)cubic == cubic && (double)(int)square == square) {
-                return x;
-            }
-            else{
-                System.out.println((double)(int)cubic);
-                System.out.println(cubic);
+            double cubic = Math.pow((double)x, 1.0/3);
+            double square = Math.sqrt(x);
+            if (Math.abs((double)Math.round(cubic) - cubic) < 0.001 &&
+                    Math.abs((double)Math.round(square) - square) < 0.001) {
+                return y;
             }
         }
 

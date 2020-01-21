@@ -56,9 +56,9 @@ public class QueryProcessorTest {
 
     @Test
     public void squareCube() throws Exception {
-        String query = "which of the following numbers is both a square and a cube: 117649, 641";
+        String query = "which of the following numbers is both a square and a cube:   117649,   641";
         System.out.println(queryProcessor.process(query));
-        assertThat(queryProcessor.process(query), containsString(""));
+        assertThat(queryProcessor.process(query), containsString("117649"));
     }
 
     @Test
