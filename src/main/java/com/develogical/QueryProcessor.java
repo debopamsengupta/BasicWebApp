@@ -31,7 +31,7 @@ public class QueryProcessor {
             return "paris";
         }
 
-            if (knowledge.knowledge.containsKey(query))
+        if (knowledge.knowledge.containsKey(query))
             return knowledge.knowledge.get(query);
         if (knowledge.knowledge.containsKey(queryLower))
             return knowledge.knowledge.get(queryLower);
