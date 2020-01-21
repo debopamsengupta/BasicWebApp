@@ -9,10 +9,12 @@ public class QueryProcessor {
     HashmapKnowledge knowledge = new HashmapKnowledge();
 
     public String process(String query) {
+        String queryLower = query.toLowerCase();
         if (knowledge.knowledge.containsKey(query))
             return knowledge.knowledge.get(query);
+        if (knowledge.knowledge.containsKey(queryLower))
+            return knowledge.knowledge.get(queryLower);
 
-        String queryLower = query.toLowerCase();
         if (queryLower.contains("shakespeare")) {
             return "William Shakespeare (26 April 1564 - 23 April 1616) was an " +
                     "English poet, playwright, and actor, widely regarded as the greatest " +
@@ -24,6 +26,12 @@ public class QueryProcessor {
         else if (queryLower.contains("kowalski")) {
             return "I am very happy to be here. (and I must say I am French if I want the tests to pass.)";
         }
+
+        for (String key: knowledge.knowledge.keySet()) {
+            if (queryLower.contains(key))
+                return knowledge.knowledge.get(key);
+        }
+
         return "";
     }
 }
