@@ -40,4 +40,9 @@ public class QueryProcessorTest {
         assertThat(queryProcessor.process("team name"), containsString("united pleasure peer"));
         assertThat(queryProcessor.process("what is your team name"), containsString("united pleasure peer"));
     }
+
+    @Test
+    public void plus() throws Exception {
+        assertThat(queryProcessor.process("what is 3 plus 4"), containsString("7"));
+    }
 }
