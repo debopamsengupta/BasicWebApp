@@ -1,6 +1,7 @@
 package com.develogical;
 
 
+import com.develogical.knowledge.Calculator;
 import com.develogical.knowledge.HashmapKnowledge;
 
 import java.util.HashMap;
@@ -9,18 +10,17 @@ public class QueryProcessor {
     HashmapKnowledge knowledge = new HashmapKnowledge();
 
     public String process(String query) {
-        String queryLower = query.toLowerCase();
+        String queryLower = query.toLowerCase().trim();
         if (knowledge.knowledge.containsKey(query))
             return knowledge.knowledge.get(query);
         if (knowledge.knowledge.containsKey(queryLower))
             return knowledge.knowledge.get(queryLower);
 
-        if (queryLower.contains("what is") && queryLower.contains("plus"))
+        if (queryLower.contains("what is") &&
+                (queryLower.contains("plus") || queryLower.contains("minus") || queryLower.contains("divided") || queryLower.contains("times")))
         {
-            String[] split = queryLower.split(" ");
-            int first = Integer.parseInt(split[2]);
-            int second = Integer.parseInt(split[4]);
-            return Integer.toString(first + second);
+            Calculator calc = new Calculator(queryLower);
+            return Integer.toString(calc.getResult());
         }
         if (queryLower.contains("shakespeare")) {
             return "William Shakespeare (26 April 1564 - 23 April 1616) was an " +
