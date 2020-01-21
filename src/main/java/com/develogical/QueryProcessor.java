@@ -4,6 +4,9 @@ package com.develogical;
 import com.develogical.knowledge.Calculator;
 import com.develogical.knowledge.HashmapKnowledge;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
 import java.util.HashMap;
 
 public class QueryProcessor {
@@ -11,6 +14,17 @@ public class QueryProcessor {
 
     public String process(String query) {
         String queryLower = query.toLowerCase().trim();
+
+        if (queryLower.contains("largest")) {
+            String [] s = queryLower.split("largest: ")[1].split(",");
+            return largest(s);
+        }
+
+        if (queryLower.contains("smallest")) {
+            String [] s = queryLower.split("smallest: ")[1].split(",");
+            return smallest(s);
+        }
+
         if (knowledge.knowledge.containsKey(query))
             return knowledge.knowledge.get(query);
         if (knowledge.knowledge.containsKey(queryLower))
@@ -40,5 +54,21 @@ public class QueryProcessor {
         }
 
         return "";
+    }
+
+    public String largest(String[] s) {
+        ArrayList<Integer> l = new ArrayList<Integer>(s.length);
+        for (int  i = 0; i < s.length; i++) {
+            l.add(Integer.parseInt(s[i].trim()));
+        }
+        return Collections.max(l).toString();
+    }
+
+    public String smallest(String[] s) {
+        ArrayList<Integer> l = new ArrayList<Integer>(s.length);
+        for (int  i = 0; i < s.length; i++) {
+            l.add(Integer.parseInt(s[i].trim()));
+        }
+        return Collections.min(l).toString();
     }
 }

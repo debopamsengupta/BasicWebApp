@@ -43,9 +43,15 @@ public class QueryProcessorTest {
 
     @Test
     public void plus() throws Exception {
-        assertThat(queryProcessor.process( "  what is 3 plus 4"), containsString("7"));
-        assertThat(queryProcessor.process( "  what is 3 minus 4"), containsString("-1"));
-        assertThat(queryProcessor.process( "  what is 3 times 4"), containsString("12"));
-        assertThat(queryProcessor.process( "  what is 3 divided 4"), containsString("0"));
+        assertThat(queryProcessor.process("  what is 3 plus 4"), containsString("7"));
+        assertThat(queryProcessor.process("  what is 3 minus 4"), containsString("-1"));
+        assertThat(queryProcessor.process("  what is 3 times 4"), containsString("12"));
+        assertThat(queryProcessor.process("  what is 3 divided 4"), containsString("0"));
+    }
+
+    @Test
+    public void largest() throws Exception {
+        assertThat(queryProcessor.process("what is largest: 43, 67"), containsString("67"));
+        assertThat(queryProcessor.process("what is largest: 59, 72"), containsString("72"));
     }
 }
