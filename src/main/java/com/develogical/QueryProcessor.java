@@ -1,10 +1,7 @@
 package com.develogical;
 
 
-import com.develogical.knowledge.Calculator;
-import com.develogical.knowledge.Fibonacci;
-import com.develogical.knowledge.HashmapKnowledge;
-import com.develogical.knowledge.SquareCube;
+import com.develogical.knowledge.*;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -59,6 +56,9 @@ public class QueryProcessor {
         }
         else if (queryLower.contains("james bond") && queryLower.contains("dr") && queryLower.contains("no")) {
             return "sean connery";
+        }
+        else if (queryLower.contains("to the power of")) {
+            return Integer.toString(new PowerCalculator(queryLower).getResult());
         }
         else if (queryLower.contains("shakespeare")) {
             return "William Shakespeare (26 April 1564 - 23 April 1616) was an " +

@@ -78,4 +78,9 @@ public class QueryProcessorTest {
         assertThat(queryProcessor.process("what is the 1st fibonacci"), containsString("1"));
         assertThat(queryProcessor.process("what is the 2nd fibonacci"), containsString("2"));
     }
+
+    @Test
+    public void power() throws Exception {
+        assertThat(queryProcessor.process("what is 4 to the power of 2"), containsString("16"));
+    }
 }
