@@ -42,11 +42,29 @@ public class QueryProcessorTest {
     }
 
     @Test
-    public void plus() throws Exception {
+    public void calculator() throws Exception {
+        assertThat(queryProcessor.process( "  what is 3 plus 4"), containsString("7"));
+        assertThat(queryProcessor.process( "        what is 3 minus 4"), containsString("-1"));
+        assertThat(queryProcessor.process( "  what is 3 times 4"), containsString("12"));
+        assertThat(queryProcessor.process( "what is 3 times 5"), containsString("15"));
+        assertThat(queryProcessor.process( "  what is 3 divided 4"), containsString("0"));
         assertThat(queryProcessor.process("  what is 3 plus 4"), containsString("7"));
         assertThat(queryProcessor.process("  what is 3 minus 4"), containsString("-1"));
         assertThat(queryProcessor.process("  what is 3 times 4"), containsString("12"));
         assertThat(queryProcessor.process("  what is 3 divided 4"), containsString("0"));
+    }
+
+    @Test
+    public void squareCube() throws Exception {
+        String query = "which of the following numbers is both a square and a cube: 117649, 641";
+        System.out.println(queryProcessor.process(query));
+        assertThat(queryProcessor.process(query), containsString(""));
+    }
+
+    @Test
+    public void bond() throws Exception {
+        String query = "james bond dr no";
+        assertThat(queryProcessor.process(query), containsString("sean connery"));
     }
 
     @Test
