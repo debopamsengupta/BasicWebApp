@@ -48,8 +48,14 @@ public class QueryProcessor {
         }
         else if (queryLower.contains("both a") && queryLower.contains("cube") && queryLower.contains("square"))
         {
-            SquareCube sc = new SquareCube(queryLower);
-            return Integer.toString(sc.getResult());
+            try {
+                SquareCube sc = new SquareCube(queryLower);
+                return Integer.toString(sc.getResult());
+            } catch (Exception e)
+            {
+                System.out.println(e);
+                return "";
+            }
         }
         else if (queryLower.contains("james bond") && queryLower.contains("dr") && queryLower.contains("no")) {
             return "sean connery";

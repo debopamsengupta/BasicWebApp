@@ -23,10 +23,8 @@ public class SquareCube {
 
         for(int y : integers)
         {
-            double x = (double)y;
-            System.out.println(x);
-            double cubic = Math.pow((double)x, 1.0/3);
-            double square = Math.sqrt(x);
+            double cubic = Math.pow(y, 1.0/3);
+            double square = Math.sqrt(y);
             if (Math.abs((double)Math.round(cubic) - cubic) < 0.001 &&
                     Math.abs((double)Math.round(square) - square) < 0.001) {
                 return y;
