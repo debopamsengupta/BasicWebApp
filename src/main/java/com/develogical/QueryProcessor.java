@@ -31,6 +31,9 @@ public class QueryProcessor {
         else if (queryLower.contains("eiffel") && queryLower.contains("city")) {
             return "paris";
         }
+        else if (queryLower.contains("colour") && queryLower.contains("banana")) {
+            return "yellow";
+        }
 
         if (knowledge.knowledge.containsKey(query))
             return knowledge.knowledge.get(query);
