@@ -18,7 +18,7 @@ public class Fibonacci {
 
     public int getResult() {
         String result = request.split("what is the ")[1];
-        result = result.split(" ")[0].replace("th", "").replace("st", "").replace("nd", "");
+        result = result.split(" ")[0].replace("th", "").replace("st", "").replace("nd", "").replace("rd", "");
         int x = Integer.parseInt(result);
         return fib(x);
     }
