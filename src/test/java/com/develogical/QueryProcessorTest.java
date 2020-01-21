@@ -78,4 +78,9 @@ public class QueryProcessorTest {
         assertThat(queryProcessor.process("what is the 1st fibonacci"), containsString("1"));
         assertThat(queryProcessor.process("what is the 2nd fibonacci"), containsString("2"));
     }
+
+    @Test
+    public void primes() throws Exception {
+        assertThat(queryProcessor.process("are primes: 1, 2, 3, 4"), containsString("2, 3"));
+    }
 }

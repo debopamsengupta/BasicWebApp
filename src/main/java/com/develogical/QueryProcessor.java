@@ -30,6 +30,15 @@ public class QueryProcessor {
         }
         else if (queryLower.contains("eiffel") && queryLower.contains("city")) {
             return "paris";
+        } else if (queryLower.contains("primes")) {
+            String [] s = queryLower.split("primes: ")[1].split(",");
+            ArrayList<String> l = new ArrayList<>(s.length);
+            for (int  i = 0; i < s.length; i++) {
+                if(isPrime(Integer.parseInt(s[i].trim()))) {
+                    l.add(s[i].trim());
+                }
+            }
+            return String.join(", ", l);
         }
         else if (queryLower.contains("colour") && queryLower.contains("banana")) {
             return "yellow";
@@ -101,6 +110,7 @@ public class QueryProcessor {
     }
 
     private boolean isPrime(int num) {
+        if (num == 1) return false;
         for (int i = 2; i <= num / 2; i++) {
             if (num % i == 0) {
                 return false;
