@@ -80,6 +80,11 @@ public class QueryProcessorTest {
     }
 
     @Test
+    public void primes() throws Exception {
+        assertThat(queryProcessor.process("are primes: 1, 2, 3, 4"), containsString("2, 3"));
+    }
+
+    @Test
     public void power() throws Exception {
         assertThat(queryProcessor.process("what is 4 to the power of 2"), containsString("16"));
     }
