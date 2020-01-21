@@ -9,8 +9,14 @@ public class Calculator {
 
     public int getResult() {
         String[] split = request.split(" ");
-        int first = Integer.parseInt(split[2]);
-        int second = Integer.parseInt(split[4]);
+        int first;
+        int second;
+        try {
+            first = Integer.parseInt(split[2]);
+            second = Integer.parseInt(split[4]);
+        } catch(Exception e) {
+            return 0;
+        }
         if (request.contains("plus"))
             return first + second;
         if (request.contains("minus"))

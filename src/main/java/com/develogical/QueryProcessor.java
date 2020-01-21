@@ -3,6 +3,7 @@ package com.develogical;
 
 import com.develogical.knowledge.Calculator;
 import com.develogical.knowledge.HashmapKnowledge;
+import com.develogical.knowledge.SquareCube;
 
 import java.util.HashMap;
 
@@ -22,7 +23,15 @@ public class QueryProcessor {
             Calculator calc = new Calculator(queryLower);
             return Integer.toString(calc.getResult());
         }
-        if (queryLower.contains("shakespeare")) {
+        else if (queryLower.contains("both a") && queryLower.contains("cube") && queryLower.contains("square"))
+        {
+            SquareCube sc = new SquareCube(queryLower);
+            return Integer.toString(sc.getResult());
+        }
+        else if (queryLower.contains("james bond") && queryLower.contains("dr") && queryLower.contains("no")) {
+            return "sean connery";
+        }
+        else if (queryLower.contains("shakespeare")) {
             return "William Shakespeare (26 April 1564 - 23 April 1616) was an " +
                     "English poet, playwright, and actor, widely regarded as the greatest " +
                     "writer in the English language and the world's pre-eminent dramatist.";
