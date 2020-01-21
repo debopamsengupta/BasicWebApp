@@ -32,7 +32,7 @@ public class QueryProcessor {
             return "paris";
         }
 
-            if (knowledge.knowledge.containsKey(query))
+        if (knowledge.knowledge.containsKey(query))
             return knowledge.knowledge.get(query);
         if (knowledge.knowledge.containsKey(queryLower))
             return knowledge.knowledge.get(queryLower);
@@ -88,7 +88,7 @@ public class QueryProcessor {
     }
 
     private boolean isSquareAndCube(int num) {
-        return Math.sqrt((int)Math.pow(num, 1 / 2)) == num && Math.cbrt((int)Math.pow(num, 1 / 3)) == num;
+        return Math.sqrt((int)Math.pow(num, 1.0 / 2)) == num && Math.cbrt((int)Math.pow(num, 1.0 / 3)) == num;
     }
 
     private boolean isPrime(int num) {

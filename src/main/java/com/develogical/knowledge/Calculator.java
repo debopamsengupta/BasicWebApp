@@ -8,23 +8,15 @@ public class Calculator {
     }
 
     public int getResult() {
-        String[] split = request.split(" ");
-        int first;
-        int second;
-        try {
-            first = Integer.parseInt(split[2]);
-            second = Integer.parseInt(split[4]);
-        } catch(Exception e) {
-            return 0;
-        }
+        String numbers = request.split("is ")[1];
         if (request.contains("plus"))
-            return first + second;
+            return Integer.parseInt(numbers.split("plus")[0].trim()) + Integer.parseInt(numbers.split("plus")[1].trim());
         if (request.contains("minus"))
-            return first - second;
+            return Integer.parseInt(numbers.split("minus")[0].trim()) - Integer.parseInt(numbers.split("minus")[1].trim());;
         if (request.contains("divided"))
-            return first / second;
+            return Integer.parseInt(numbers.split("divided")[0].trim()) / Integer.parseInt(numbers.split("divided")[1].trim());;
         if (request.contains("times"))
-            return first * second;
+            return Integer.parseInt(numbers.split("times")[0].trim()) * Integer.parseInt(numbers.split("times")[1].trim());;
         return 0;
     }
 }
