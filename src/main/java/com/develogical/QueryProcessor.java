@@ -2,6 +2,7 @@ package com.develogical;
 
 
 import com.develogical.knowledge.Calculator;
+import com.develogical.knowledge.Fibonacci;
 import com.develogical.knowledge.HashmapKnowledge;
 import com.develogical.knowledge.SquareCube;
 
@@ -24,9 +25,9 @@ public class QueryProcessor {
             String [] s = queryLower.split("smallest: ")[1].split(",");
             return smallest(s);
         }
-        // else if (queryLower.contains("fibonacci")) {
-//            return Fibonnacci(quer)
- //      }
+         else if (queryLower.contains("fibonacci")) {
+            return Integer.toString(new Fibonacci(queryLower).getResult());
+        }
         else if (queryLower.contains("eiffel") && queryLower.contains("city")) {
             return "paris";
         }

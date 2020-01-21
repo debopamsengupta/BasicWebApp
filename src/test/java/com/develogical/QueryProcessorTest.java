@@ -72,4 +72,11 @@ public class QueryProcessorTest {
         assertThat(queryProcessor.process("what is largest: 43, 67"), containsString("67"));
         assertThat(queryProcessor.process("what is largest: 59, 72"), containsString("72"));
     }
+
+    @Test
+    public void fib() throws Exception {
+        assertThat(queryProcessor.process("what is the 4th fibonacci"), containsString("5"));
+        assertThat(queryProcessor.process("what is the 1st fibonacci"), containsString("1"));
+        assertThat(queryProcessor.process("what is the 2nd fibonacci"), containsString("2"));
+    }
 }
