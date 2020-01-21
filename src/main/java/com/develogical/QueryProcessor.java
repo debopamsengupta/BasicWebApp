@@ -20,13 +20,18 @@ public class QueryProcessor {
             String [] s = queryLower.split("largest: ")[1].split(",");
             return largest(s);
         }
-
-        if (queryLower.contains("smallest")) {
+        else if (queryLower.contains("smallest")) {
             String [] s = queryLower.split("smallest: ")[1].split(",");
             return smallest(s);
         }
+        // else if (queryLower.contains("fibonacci")) {
+//            return Fibonnacci(quer)
+ //      }
+        else if (queryLower.contains("eiffel") && queryLower.contains("city")) {
+            return "paris";
+        }
 
-        if (knowledge.knowledge.containsKey(query))
+            if (knowledge.knowledge.containsKey(query))
             return knowledge.knowledge.get(query);
         if (knowledge.knowledge.containsKey(queryLower))
             return knowledge.knowledge.get(queryLower);
