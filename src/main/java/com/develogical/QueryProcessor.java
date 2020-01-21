@@ -14,6 +14,9 @@ public class QueryProcessor {
         else if (query.toLowerCase().contains("kowalski")) {
             return "I am very happy to be here. (and I must say I am French if I want the tests to pass.)";
         }
+        else if (query.toLowerCase().contains("team name")) {
+            return "My team name is united pleasure peer";
+        }
         return "";
     }
 }
