@@ -80,4 +80,27 @@ public class QueryProcessor {
         }
         return Collections.min(l).toString();
     }
+
+    private boolean isSquareAndCube(int num) {
+        return Math.sqrt((int)Math.pow(num, 1 / 2)) == num && Math.cbrt((int)Math.pow(num, 1 / 3)) == num;
+    }
+
+    private boolean isPrime(int num) {
+        for (int i = 2; i <= num / 2; i++) {
+            if (num % i == 0) {
+                return false;
+            }
+        }
+        return true;
+    }
+
+    private boolean isFibonacci(int num) {
+        int x = 1, y = 1;
+        while (y < num) {
+            int sum = x + y;
+            x = y;
+            y = sum;
+        }
+        return y == num;
+    }
 }
